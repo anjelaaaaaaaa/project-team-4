@@ -57,8 +57,11 @@
                         <p class="lead fw-normal text-muted mb-0">How can we help you?</p>
                     </div>
                     
+                    	
+                    
                      <%
                                 ArrayList<NoticeDTO> noticeList=(ArrayList<NoticeDTO>)request.getAttribute("noticeList");
+                     String id = "admin";
                              %>
                              
                              <table>
@@ -79,6 +82,15 @@
                                     <div class="accordion-collapse collapse " id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                            <%=dto.getNo_content() %><br>
+                                           <%if(id=="admin"){
+                                        	   
+                                        	  %>
+                                        	  <input type="button" name="write" value="수정" onclick="location.href='NoticeUpdate.no'">
+                                        	  <input type="button" name="delete" value="삭제" onclick="location.href='NoticeDelete.no'">
+                                        	  <%
+                                           }
+                                           %>
+                                           
                                          </div>
                                     </div>
                                  </div>
