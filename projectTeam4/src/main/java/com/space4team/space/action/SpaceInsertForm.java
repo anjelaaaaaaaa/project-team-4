@@ -11,6 +11,7 @@ public class SpaceInsertForm implements action{
 	@Override
 	public actionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("SpaceInsertForm execute 실행");
+		
 		SpaceDAO dao = new SpaceDAO();
 
 		System.out.println("구한 num값");

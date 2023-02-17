@@ -11,8 +11,17 @@ public class SpaceDTO {
 	private String s_memo;
 	private String s_file;
 	private String s_option;
+	private String s_max;
 	
 	
+	
+	
+	public String getS_max() {
+		return s_max;
+	}
+	public void setS_max(String s_max) {
+		this.s_max = s_max;
+	}
 	public String getS_option() {
 		return s_option;
 	}

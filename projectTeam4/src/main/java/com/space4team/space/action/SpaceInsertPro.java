@@ -4,9 +4,12 @@ import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.space4team.member.db.MemberDAO;
+import com.space4team.member.db.MemberDTO;
 import com.space4team.space.db.SpaceDAO;
 import com.space4team.space.db.SpaceDTO;
 
@@ -44,6 +47,7 @@ public class SpaceInsertPro implements action{
 		String sido = multi.getParameter("sido");
 		String gungu = multi.getParameter("gungu");
 		String memo = multi.getParameter("memo");
+		String max = multi.getParameter("max");
 		
 //		추가 => 업로드된 파일이름 정보 ("file"은 fWriteForm에 있는 첨부파일의 "file"의미)
 		String file = multi.getFilesystemName("file");
@@ -66,16 +70,24 @@ public class SpaceInsertPro implements action{
 		dto.setS_name(name);
 		dto.setS_address(address);
 		dto.setS_bill(bill);
+		dto.setS_max(max);
 		dto.setS_sido(sido);
 		dto.setS_gungu(gungu);
 		dto.setS_memo(memo);
 		dto.setS_file(file);
 		dto.setS_option(s_option);
 		
+		
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		MemberDAO mdao = new MemberDAO();
+		MemberDTO mdto = mdao.gethost(id);
+		System.out.println(mdto.getH_id());
+		
 		SpaceDAO dao = new SpaceDAO();
 		System.out.println("SpaceDAO 주소 : " + dao);
 //		dao.insertMember(id, pass, name, date);  변수 대신 MemberDTO의 주소값을 전달할거임
-		dao.insertSpace(dto);
+		dao.insertSpace(dto, mdto);
 		
 //		memberLoginForm.me로 이동정보를 담아서 갈거임 
 //		actionForward(이동정보를 담는 객체)를 생성함 ! 

@@ -94,6 +94,12 @@
                                         <br>
                                     </div>
                                     
+                                 	<div class="form-floating mb-3">
+                                        <input class="form-control" name="max" type="text" placeholder="name@example.com" required title="입력하세요!">
+                                        <label for="max"><i class="bi bi-star-fill text-warning"></i>최대 수용인원을 알려주세요</label>
+                                    </div>
+                                 	
+                                    
                                       <div class="form-floating mb-3">
                                         <input class="form-control" name="address" type="text" placeholder="name@example.com" required title="입력하세요!">
                                         <label for="location"><i class="bi bi-star-fill text-warning"></i>주소를 입력하세요</label>
@@ -158,7 +164,6 @@
                     </div>
                     <!-- Contact cards-->
                    <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5 justify-content-center">
-<!--                     <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5"> -->
                         
                         <div class="col">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-people"></i></div>

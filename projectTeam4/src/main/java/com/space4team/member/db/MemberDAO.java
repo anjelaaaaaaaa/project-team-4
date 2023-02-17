@@ -130,7 +130,7 @@ public class MemberDAO {
 	}//userCheck()
 	
 	// MemberDTO 리턴할형 getMember(String id) 메서드 정의
-	public MemberDTO getMember(String id) {
+	public MemberDTO gethost(String id) {
 		MemberDTO dto=null;
 		Connection con =null;
 		PreparedStatement pstmt=null;
@@ -140,7 +140,7 @@ public class MemberDAO {
 			con=getConnection();
 			
 			//3단계 SQL구문 만들어서 실행할 준비(select 조건 where id=?)
-			String sql="select * from members where id=?";
+			String sql="select * from host where h_id=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, id);
 
@@ -154,9 +154,10 @@ public class MemberDAO {
 				// 바구니 객체생성 => 기억장소 할당
 				dto=new MemberDTO();
 				// set메서드호출 바구니에 디비에서 가져온 값 저장
-				dto.setH_id(rs.getString("id"));
-				dto.setH_pass(rs.getString("pass"));
-				dto.setH_name(rs.getString("name"));
+				dto.setH_id(rs.getString("h_id"));
+				dto.setH_pass(rs.getString("h_pass"));
+				dto.setH_name(rs.getString("h_name"));
+				dto.setH_num(rs.getInt("h_num"));
 		
 			}
 		} catch (Exception e) {

@@ -13,11 +13,13 @@ public class SpaceUpdateForm implements action{
 		System.out.println("SpaceContent execute () 실행");
 		
 		int num = Integer.parseInt(request.getParameter("num"));
+		System.out.println(num);
 		
 		SpaceDAO dao = new SpaceDAO();
+		SpaceDTO dto = dao.getSpace(num);
 		
 //		Space DTO 생성하고 getboard 만들고,,,,, request로 보내주기 
-		
+		request.setAttribute("dto", dto);
 		
 		actionForward forward = new actionForward();
 		forward.setPath("spaceupdate.jsp");

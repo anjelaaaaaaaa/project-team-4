@@ -6,21 +6,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.space4team.member.db.MemberDAO;
+import com.space4team.member.db.MemberDTO;
 import com.space4team.space.db.SpaceDAO;
 import com.space4team.space.db.SpaceDTO;
 
 public class SpaceList implements action{
 	@Override
-	public actionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+	public actionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {	
 		System.out.println("SpaceList execute실행 ()");
+		
+		SpaceDAO dao = new SpaceDAO();
 		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
-		System.out.println(id);
-		SpaceDAO dao = new SpaceDAO();
 		
-		
+		MemberDAO mdao = new MemberDAO();
+		MemberDTO mdto = mdao.gethost(id);
+		System.out.println(mdto.getH_id());
+		System.out.println(mdto.getH_num()); // host number 출력됨 
 		
 		int pageSize = 5;
 		String pageNum = request.getParameter("pageNum");
@@ -33,7 +37,7 @@ public class SpaceList implements action{
 		int startRow = (currentPage -1) * pageSize + 1;
 		int endRow = startRow + pageSize - 1;
 		
-		ArrayList<SpaceDTO> spaceList = dao.getSpaceList(startRow, pageSize );
+		ArrayList<SpaceDTO> spaceList = dao.getSpaceList(startRow, pageSize ,mdto);
 		
 		int pageBlock = 3;
 		int startPage = (currentPage -1 )/pageBlock * pageBlock + 1;
@@ -50,7 +54,6 @@ public class SpaceList implements action{
 		request.setAttribute("pageBlock", pageBlock);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCount", pageCount);
-		
 	
 		actionForward forward = new actionForward();
 		forward.setPath("hostspace.jsp");

@@ -92,15 +92,18 @@
              int pageCount = (Integer)request.getAttribute("pageCount");
             
             	 %>         
-            <table>
-             		<tr><td>공간번호</td><td>공간이름</td></tr>
+            <table border="1">
+             		<tr><td>공간번호 </td><td>공간이름 </td><td>공간주소 </td><td>최대수용인원 </td><td>가격</td></tr>
             <%
              	for (int i = 0; i<spaceList.size(); i++){
              		SpaceDTO dto = spaceList.get(i);
              		%>
              		
              		 <tr><td><a href="SpaceUpdateForm.sp?num=<%=dto.getS_num()%>"><%=dto.getS_num() %></a></td>
-             			<td><%=dto.getS_name()%></td></tr>
+             			<td><%=dto.getS_name()%></td>
+             			<td><%= dto.getS_address()%></td>
+             			<td><%= dto.getS_max() %></td>
+             			<td><%= dto.getS_bill() %></td></tr>
              		<%
              	}
             %>
@@ -165,7 +168,6 @@
                                    </div>
                                </div>
                            </div>
-                       </div>
                    </div>
                </div>
            </div>

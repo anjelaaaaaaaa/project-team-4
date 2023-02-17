@@ -17,7 +17,7 @@ public class MemberIdCheck implements Action{
 		// MemberDAO 객체생성
 		MemberDAO dao=new MemberDAO();
 		// MemberDTO dto = getMember() 메서드 호출
-		MemberDTO dto=dao.getMember(id);
+		MemberDTO dto=dao.gethost(id);
 		String result="";
 		// dto null 아니면 아이디 있음, 아이디 중복
 		// dto null 이면   아이디 없음, 아이디 사용가능

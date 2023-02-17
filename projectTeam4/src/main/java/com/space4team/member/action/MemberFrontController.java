@@ -33,8 +33,14 @@ public class MemberFrontController extends HttpServlet{
 		//가상 주소 매핑(비교)
 		Action action=null;
 		ActionForward forward=null;
+			if(sPath.equals("/MemberLoginForm.me")) {
+				
+				forward=new ActionForward();
+				forward.setPath("login.jsp");
+				forward.setRedirect(false);
+			}
 		
-			if(sPath.equals("/MemberLoginPro.me")) {
+			else if(sPath.equals("/MemberLoginPro.me")) {
 			System.out.println("loginpro.me 실행전");
 			
 			action=new MemberLoginPro();
