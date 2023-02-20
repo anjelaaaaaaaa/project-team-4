@@ -103,7 +103,10 @@
              			<td><%=dto.getS_name()%></td>
              			<td><%= dto.getS_address()%></td>
              			<td><%= dto.getS_max() %></td>
-             			<td><%= dto.getS_bill() %></td></tr>
+             			<td><%= dto.getS_bill() %></td>
+             			<td><input type="button" name="write" value="수정" onclick="location.href='SpaceUpdateForm.sp?num=<%=dto.getS_num()%>'"></td>
+                        <td><input type="button" name="delete" value="삭제" onclick="location.href='SpaceDeleteForm.sp?num=<%=dto.getS_num()%>'"></td></tr>                   
+                                        	  
              		<%
              	}
             %>

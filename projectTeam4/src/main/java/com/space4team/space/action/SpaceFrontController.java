@@ -82,7 +82,24 @@ public class SpaceFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 			
-		} 
+		} else if(sPath.equals("/SpaceDeleteForm.sp")) {
+			System.out.println("spacedelteform 까지옴");
+			action = new SpaceDeleteForm();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if(sPath.equals("/SpaceDeletePro.sp")) {
+			
+			action = new SpaceDeletePro();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	
 						
 //		forward(이동정보 담은 객체에 뭔가 있다면 ! == 이동정보가 있다면 )

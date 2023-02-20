@@ -30,14 +30,13 @@ public class MemberLoginPro implements Action{
 			//아이디 비밀번호 일치
 			HttpSession session=request.getSession();
 			session.setAttribute("id", id);
-			
-			
-			
+
 			forward=new ActionForward();
 			forward.setPath("HostMain.me");
 			forward.setRedirect(true);
 			
-		}else {
+		}
+		else {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out=response.getWriter();
 			out.println("<script type='text/javascript'>");

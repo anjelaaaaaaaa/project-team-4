@@ -55,6 +55,7 @@
                 <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">
                         <h1 class="fw-bolder">공지사항</h1>
+                        <br>
                         <p class="lead fw-normal text-muted mb-0">Space4team 사용방법을 읽어주세요 </p>
                     </div>
    
@@ -94,6 +95,7 @@
                                  </div>
                              </div>
 					<%	  	}	 %>   </table>
+					
                      
                            <a href="NoticeWriteForm.no"><i class="bi bi-star-fill text-warning"></i>글쓰기</a> 
                         </div>

@@ -25,7 +25,7 @@ public class SpaceUpdatePro implements Action{
 			int maxSize = 10*1024*1024; // 10메가임
 //			 4. 한글처리
 //			 "utf-8"쓸거임
-//			 5. 파일이름 동일할때 파일이름 변경작업
+//			 5. 파일이름 동일할때 파일이A름 변경작업
 //			new DefaultFileRenamePolicy()라는 프로그램이 cos.jar안에 있음 
 			
 			MultipartRequest multi = new MultipartRequest

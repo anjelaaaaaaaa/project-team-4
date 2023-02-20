@@ -640,6 +640,8 @@ progress {
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
+	  text-align: center;
+  align-items: center;
 }
 
 @media (min-width: 576px) {
@@ -4666,6 +4668,12 @@ textarea.form-control-lg {
   }
 }
 
+.accordion {
+	
+	align-items : center;
+	text-align : center;
+}
+
 .accordion-button {
   position: relative;
   display: flex;
@@ -4755,6 +4763,7 @@ textarea.form-control-lg {
 
 .accordion-body {
   padding: 1rem 1.25rem;
+
 }
 
 .accordion-flush .accordion-collapse {
@@ -4774,6 +4783,8 @@ textarea.form-control-lg {
 .accordion-flush .accordion-item .accordion-button {
   border-radius: 0;
 }
+
+
 
 .breadcrumb {
   display: flex;
@@ -5522,7 +5533,7 @@ textarea.form-control-lg {
   overflow-y: auto;
 }
 
-.modal-dialog-centered {
+.modal-dialog-ed {
   display: flex;
   align-items: center;
   min-height: calc(100% - 1rem);
@@ -5857,6 +5868,7 @@ textarea.form-control-lg {
   background-color: #000;
   border-radius: 0.25rem;
 }
+
 
 .popover {
   position: absolute;
@@ -7376,7 +7388,7 @@ textarea.form-control-lg {
 .mb-4 {
   margin-bottom: 1.5rem !important;
 }
-
+*/
 .mb-5 {
   margin-bottom: 3rem !important;
 }
@@ -7463,8 +7475,8 @@ textarea.form-control-lg {
 }
 
 .px-5 {
-  padding-right: 3rem !important;
-  padding-left: 3rem !important;
+  padding-right: 20rem !important;
+  padding-left: 20rem !important;
 }
 
 .py-0 {
@@ -7495,6 +7507,8 @@ textarea.form-control-lg {
 .py-5 {
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
+  text-align: center;
+  align-items: center;
 }
 
 .pt-0 {

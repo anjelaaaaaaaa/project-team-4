@@ -243,6 +243,26 @@ public class SpaceDAO {
 			if(con!=null) {try {con.close();} catch (Exception e2) {}}		
 		}		
 	}
+		public void deleteSpace(int num) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from space where s_num = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				
+				pstmt.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+		}
 	
 	
 }
