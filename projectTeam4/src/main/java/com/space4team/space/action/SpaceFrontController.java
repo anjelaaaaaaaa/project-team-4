@@ -29,9 +29,9 @@ public class SpaceFrontController extends HttpServlet{
 		String sPath = request.getServletPath();
 		
 //		부모 인터페이스 틀 선언
-		action action = null;
+		Action action = null;
 //		이동정보를 저장하는 자바파일 선언
-		actionForward forward = null;
+		ActionForward forward = null;
 		
 		if(sPath.equals("/SpaceInsertForm.sp")) {
 			System.out.println("spaceinsertForm.sp 실행전");
@@ -82,7 +82,8 @@ public class SpaceFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 			
-		}
+		} 
+	
 						
 //		forward(이동정보 담은 객체에 뭔가 있다면 ! == 이동정보가 있다면 )
 		if(forward != null) {

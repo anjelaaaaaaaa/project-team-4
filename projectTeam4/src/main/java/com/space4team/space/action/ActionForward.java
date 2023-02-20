@@ -1,6 +1,6 @@
 package com.space4team.space.action;
 
-public class actionForward {
+public class ActionForward {
 
 //		이동 => 이동정보 : (주소값필요 , 이동방식) => 이동정보를 저장하는 자바파일,,,필요,,,^^,,,,ㅎㅎ 
 //		String path = "주소정보";

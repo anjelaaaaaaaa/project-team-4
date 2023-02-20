@@ -11,9 +11,9 @@ import com.space4team.member.db.MemberDTO;
 import com.space4team.space.db.SpaceDAO;
 import com.space4team.space.db.SpaceDTO;
 
-public class SpaceList implements action{
+public class SpaceList implements Action{
 	@Override
-	public actionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {	
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {	
 		System.out.println("SpaceList execute실행 ()");
 		
 		SpaceDAO dao = new SpaceDAO();
@@ -55,7 +55,7 @@ public class SpaceList implements action{
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCount", pageCount);
 	
-		actionForward forward = new actionForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("hostspace.jsp");
 		forward.setRedirect(false);
 		return forward;

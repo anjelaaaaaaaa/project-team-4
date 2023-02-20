@@ -45,11 +45,12 @@ public class NoticeDAO {
 				num=rs.getInt("max(no_num)")+1;
 			}
 
-			sql="insert into notice(no_num, no_subject, no_content) values(?,?,?)";
+			sql="insert into notice(no_num, no_subject, no_content, no_date) values(?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, num);  
 			pstmt.setString(2, dto.getNo_subject()); 
 			pstmt.setString(3, dto.getNo_content());
+			pstmt.setTimestamp(4, dto.getNo_date());
 
 			
 			// 4단계 SQL구문을 실행(insert,update,delete)
@@ -93,6 +94,7 @@ public class NoticeDAO {
 					dto.setNo_num(rs.getInt("no_num"));
 					dto.setNo_subject(rs.getString("no_subject"));
 					dto.setNo_content(rs.getString("no_content"));
+					dto.setNo_date(rs.getTimestamp("no_date"));
 					
 					// 바구니의 주소값을 배열 한칸에 저장
 					noticeList.add(dto);
@@ -107,6 +109,85 @@ public class NoticeDAO {
 			}
 			return noticeList;
 		}//
+		
+		public void deleteNotice(int num) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				
+				con = getConnection();
+				
+				String sql = "delete from Notice where no_num = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				
+				pstmt.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+		}
+		
+		public NoticeDTO getNotice(int num) {
+			Connection con = null;
+			ResultSet rs = null;
+			NoticeDTO dto = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				
+				con = getConnection();
+				
+				String sql = "select * from notice where no_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					dto = new NoticeDTO();
+					dto.setNo_num(rs.getInt("no_num"));
+					dto.setNo_subject(rs.getString("no_subject"));
+					dto.setNo_content(rs.getString("no_content"));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt!=null) {try {pstmt.close();} catch (Exception e2) {}}
+				if(con!=null) {try {con.close();} catch (Exception e2) {}}
+				if(rs != null) {try {rs.close();} catch (Exception e2) {}}
+			} return dto;		
+		}
+		
+		public void updateNotice(NoticeDTO dto) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				System.out.println("updateNOtice 여기까지는왔니...?");
+				
+				String sql = "update notice set no_subject =? , no_content=?, no_date =? where no_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, dto.getNo_subject());
+				pstmt.setString(2, dto.getNo_content());
+				pstmt.setTimestamp(3, dto.getNo_date());
+				pstmt.setInt(4, dto.getNo_num());
+				
+				pstmt.executeUpdate();
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt!=null) {try {pstmt.close();} catch (Exception e2) {}}
+				if(con!=null) {try {con.close();} catch (Exception e2) {}}	
+			}
+		}
 
 	
 }

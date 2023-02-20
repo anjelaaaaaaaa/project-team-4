@@ -6,10 +6,10 @@ import javax.servlet.http.HttpSession;
 
 import com.space4team.space.db.SpaceDAO;
 
-public class SpaceInsertForm implements action{
+public class SpaceInsertForm implements Action{
 
 	@Override
-	public actionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("SpaceInsertForm execute 실행");
 		
 		SpaceDAO dao = new SpaceDAO();
@@ -20,7 +20,7 @@ public class SpaceInsertForm implements action{
 		
 		request.setAttribute("num", num);
 		
-		actionForward forward = new actionForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("upload.jsp");
 		forward.setRedirect(false);
 		

@@ -55,8 +55,34 @@ public class NoticeFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		
-			
+
+			} else if (sPath.equals("/NoticeDelete.no")) {
+				System.out.println("noticeDeletePro.no 실행");
+				action = new NoticeDelete();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			} else if(sPath.equals("/NoticeUpdateForm.no")) {
+				System.out.println("noticeUpdateForm 실행");
+				action = new NoticeUpdateForm();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+			else if(sPath.equals("/NoticeUpdatePro.no")) {
+				System.out.println("noticeUpdatePro 실행");
+				action = new NoticeUpdatePro();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		
 //		forward(이동정보 담은 객체에 뭔가 있다면 ! == 이동정보가 있다면 )

@@ -1,3 +1,4 @@
+<%@page import="com.space4team.notice.db.NoticeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -57,18 +58,26 @@
                             <h1 class="fw-bolder">공지사항 작성하기</h1>
                            
                         </div>
+                        
+                        <%
+                        NoticeDTO dto = (NoticeDTO)request.getAttribute("dto");
+                        %>
+                        
+                        
+                        
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
-                                <form action = "NoticeWritePro.no" data-sb-form-api-token="API_TOKEN">
+                                <form action = "NoticeUpdatePro.no" data-sb-form-api-token="API_TOKEN">
+                                <input type="hidden" name="num" value="<%=dto.getNo_num()%>">    
                                     <!-- Name input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" name="subject" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                        <input class="form-control" name="subject" value="<%=dto.getNo_subject() %>" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                         <label for="name">제목</label>
                                     </div>
                                     
                                     <!-- Message input-->
                                     <div class="form-floating mb-3">
-                                        <textarea class="form-control" name="content" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                        <textarea class="form-control" name="content" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"><%=dto.getNo_content().trim() %></textarea>
                                         <label for="message">내용</label>
                                     </div>
 
@@ -84,10 +93,6 @@
                                     <!-- Submit Button-->
                                     <div class="d-grid">
                                     <input class="btn btn-primary btn-lg" href="#scroll-target" type="submit" value="등록하기">
-                                   </div>
-                                   <br>
-                                   <div class="d-grid">
-                                    <input class="btn btn-primary btn-lg" href="#scroll-target" type="reset" value="초기화하기">
                                    </div>
                                 </form>
                             </div>

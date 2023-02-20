@@ -1,10 +1,20 @@
 package com.space4team.notice.db;
 
+import java.sql.Timestamp;
+
 public class NoticeDTO {
 
 	private int no_num;
 	private String no_subject;
 	private String no_content;
+	private Timestamp no_date;
+	
+	public Timestamp getNo_date() {
+		return no_date;
+	}
+	public void setNo_date(Timestamp no_date) {
+		this.no_date = no_date;
+	}
 	public int getNo_num() {
 		return no_num;
 	}

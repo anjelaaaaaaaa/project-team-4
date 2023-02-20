@@ -13,10 +13,10 @@ import com.space4team.member.db.MemberDTO;
 import com.space4team.space.db.SpaceDAO;
 import com.space4team.space.db.SpaceDTO;
 
-public class SpaceInsertPro implements action{
+public class SpaceInsertPro implements Action{
 
 	@Override
-	public actionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	
 		System.out.println("SpaceInsertPro execute()");
 		
@@ -92,7 +92,7 @@ public class SpaceInsertPro implements action{
 //		memberLoginForm.me로 이동정보를 담아서 갈거임 
 //		actionForward(이동정보를 담는 객체)를 생성함 ! 
 //		여기에 setPath, setRedirect에 이동정보를 담아서 그 객체를 들고 호출한 곳으로 돌아감. return forward 
-		actionForward forward = new actionForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("hostmain.jsp");
 		forward.setRedirect(true);
 		

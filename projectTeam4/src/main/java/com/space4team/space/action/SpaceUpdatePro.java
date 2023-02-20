@@ -11,9 +11,9 @@ import com.space4team.member.db.MemberDTO;
 import com.space4team.space.db.SpaceDAO;
 import com.space4team.space.db.SpaceDTO;
 
-public class SpaceUpdatePro implements action{
+public class SpaceUpdatePro implements Action{
 	@Override
-	public actionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("SpaceUpdatePro execute() 실행");
 		
 //		객체생성 (생성자에 5가지 작성해야함)
@@ -77,7 +77,7 @@ public class SpaceUpdatePro implements action{
 			dao.updateSpace(dto, mdto);
 		
 		
-		actionForward forward = new actionForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("SpaceList.sp");
 		forward.setRedirect(true);		
 		return forward;
