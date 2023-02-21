@@ -76,6 +76,7 @@ public class SpaceUpdatePro implements Action{
 			
 			dao.updateSpace(dto, mdto);
 		
+
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("SpaceList.sp");

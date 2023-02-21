@@ -37,6 +37,8 @@ public class SpaceDeletePro implements Action{
 		SpaceDAO dao = new SpaceDAO();
 		ActionForward forward = null;
 		
+		
+		
 		if(mdto!=null) {
 			//아이디 비밀번호 일치
 			dao.deleteSpace(num);

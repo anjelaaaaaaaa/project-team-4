@@ -29,7 +29,7 @@ public class SpaceDAO {
 //				return con;
 		Connection con;
 		Context init = new InitialContext();
-		DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/DB");
+		DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MysqlDB");
 		con = ds.getConnection();
 		return con;				
 	}

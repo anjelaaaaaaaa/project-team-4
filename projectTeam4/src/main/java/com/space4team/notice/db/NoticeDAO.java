@@ -18,7 +18,7 @@ public class NoticeDAO {
 		// 1. META-INF context.xml (디비연결정보)
 		// 2. MemberDAO 디비연결정보 불러서 사용
 		Context init=new InitialContext();
-		DataSource ds=(DataSource)init.lookup("java:comp/env/jdbc/DB");
+		DataSource ds=(DataSource)init.lookup("java:comp/env/jdbc/MysqlDB");
 		Connection con=ds.getConnection();
 		return con;
 	}

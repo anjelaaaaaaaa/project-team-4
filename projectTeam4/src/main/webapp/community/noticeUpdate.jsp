@@ -60,11 +60,9 @@
                         </div>
                         
                         <%
-                        NoticeDTO dto = (NoticeDTO)request.getAttribute("dto");
-                        %>
-                        
-                        
-                        
+							   NoticeDTO dto=(NoticeDTO)request.getAttribute("dto");
+ %>
+  
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
                                 <form action = "NoticeUpdatePro.no" data-sb-form-api-token="API_TOKEN">

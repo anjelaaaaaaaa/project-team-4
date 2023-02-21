@@ -60,9 +60,11 @@
                     </div>
    
                      <%
-                                ArrayList<NoticeDTO> noticeList=(ArrayList<NoticeDTO>)request.getAttribute("noticeList");
-                     String id = "admin";
-                             %>   
+                        
+
+                                                        ArrayList<NoticeDTO> noticeList=(ArrayList<NoticeDTO>)request.getAttribute("noticeList");
+                                             String id = "admin";
+                        %>   
                              <table>
                             
                              
@@ -71,9 +73,11 @@
 <!--                         <div class="col-xl-8"> -->
 
                               <%
-				  	for(int i=0; i<noticeList.size(); i++){
-						  NoticeDTO dto=noticeList.get(i);
-					%>
+                              
+
+                              		  	for(int i=0; i<noticeList.size(); i++){
+                              				  NoticeDTO dto=noticeList.get(i);
+                              %>
 						  <div class="accordion mb-5" id="accordionExample">
                                 <div class="accordion-item">
                                     <h3 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" ><%=dto.getNo_subject() %></button></h3>
@@ -96,8 +100,15 @@
                              </div>
 					<%	  	}	 %>   </table>
 					
-                     
+					<% 
+						if(id!=null){
+                     	%>
                            <a href="NoticeWriteForm.no"><i class="bi bi-star-fill text-warning"></i>글쓰기</a> 
+                           
+                           <%
+                           
+                           }
+                           %>
                         </div>
                
 

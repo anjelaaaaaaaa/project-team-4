@@ -15,6 +15,9 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+      <script src="script/jquery-3.6.3.js"></script>
+      <script type="text/javascript" src="script/jquery-3.6.3.js"></script>
+      
     </head>
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
@@ -148,7 +151,7 @@
 <!--                                         accept 속성을 img/*로 지정할 경우 이미지 파일만 업로드 가능해짐  -->
                                        <input type="file" accept="image/*" onchange="PreviewImage(event);" name = "file" id="image" multiple >
                                     </div>
-                                    <div id="image_container"></div>
+                                    <div id="image_container" ></div>
                                     <br>
                                     <br>
                                   
@@ -188,35 +191,50 @@
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2023</div></div>
                     <div class="col-auto">
-<!--                         <a class="link-light small" href="#!">Privacy</a> -->
-<!--                         <span class="text-white mx-1">&middot;</span> -->
-<!--                         <a class="link-light small" href="#!">Terms</a> -->
-<!--                         <span class="text-white mx-1">&middot;</span> -->
-<!--                         <a class="link-light small" href="#!">Contact</a> -->
                     </div>
                 </div>
             </div>
         </footer>
       
-  
- <script>
-      function PreviewImage(event) {
-        for (var image of event.target.files) {
-          var reader = new FileReader();
+ 
+<script>
+function PreviewImage(event) {
+    for (var image of event.target.files) {
+      var reader = new FileReader();
 
-          reader.onload = function(event) {
-            var img = document.createElement("img");
-            img.setAttribute("src", event.target.result);
-            img.setAttribute("width", 250);
-            document.querySelector("div#image_container").appendChild(img);
-          };
+      reader.onload = function(event) {
+        var img = document.createElement("img");
+        img.setAttribute("src", event.target.result);
+        img.setAttribute("width", 250);
+        document.querySelector("div#image_container").appendChild(img);
+      };
 
-          console.log(image);
-          reader.readAsDataURL(image);
-        }
-      }
-    </script>
-   
+      console.log(image);
+      reader.readAsDataURL(image);
+      
+     
+     
+    
+    }
+  }
+
+
+$(document).ready(function () { 
+	alert('zzz');
+
+	  
+      $("").click(function () { 
+    		alert('zzz');
+    		$(this).remove(""); 
+    	}) 
+});
+
+ </script>  
+
+
+
     </body>
+    
+    
 </html>
     
