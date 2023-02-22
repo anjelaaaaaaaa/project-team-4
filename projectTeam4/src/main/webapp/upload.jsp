@@ -208,16 +208,10 @@ function PreviewImage(event) {
         img.setAttribute("width", 250);
         document.querySelector("div#image_container").appendChild(img);
       };
-
       console.log(image);
       reader.readAsDataURL(image);
-      
-     
-     
-    
     }
   }
-
 
 $(document).ready(function () { 
 	alert('zzz');
