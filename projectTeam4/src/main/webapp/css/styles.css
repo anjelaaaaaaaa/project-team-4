@@ -148,6 +148,7 @@ h4, .h4 {
 
 h5, .h5 {
   font-size: 1.25rem;
+  text-align: center;
 }
 
 h6, .h6 {
@@ -2756,6 +2757,7 @@ textarea.form-control-lg {
 .input-group .btn {
   position: relative;
   z-index: 2;
+
 }
 .input-group .btn:focus {
   z-index: 3;
@@ -4546,10 +4548,12 @@ textarea.form-control-lg {
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 1rem;
+
 }
 
 .card-title {
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .card-subtitle {
@@ -4559,6 +4563,7 @@ textarea.form-control-lg {
 
 .card-text:last-child {
   margin-bottom: 0;
+    text-align: center;
 }
 
 .card-link + .card-link {
@@ -7774,6 +7779,7 @@ textarea.form-control-lg {
 .text-muted {
   --bs-text-opacity: 1;
   color: #6c757d !important;
+  text-align: center;
 }
 
 .text-black-50 {
@@ -9135,8 +9141,13 @@ textarea.form-control-lg {
   }
 
   .px-md-5 {
-    padding-right: 3rem !important;
-    padding-left: 3rem !important;
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+  }
+  
+  .px-md-6 {
+    padding-right: 10em !important;
+    padding-left: 10rem !important;
   }
 
   .py-md-0 {
@@ -11286,5 +11297,11 @@ textarea.form-control-lg {
 
   .d-print-none {
     display: none !important;
+  }
+  
+  .spaceupload {
+  	text-align: center;
+  	align-items: center;
+  	position : relative;
   }
 }

@@ -52,69 +52,51 @@
             <!-- Page Content-->
             <section class="py-5">
                 <div class="container px-5 my-5">
-                <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+                <div class="bg-light rounded-3 py-5 px-4 px-md-6 mb-5">
                         <div class="text-center mb-5">
                         <h1 class="fw-bolder">공지사항</h1>
                         <br>
                         <p class="lead fw-normal text-muted mb-0">Space4team 사용방법을 읽어주세요 </p>
                     </div>
-   
-                     <%
-                        
-
-                                                        ArrayList<NoticeDTO> noticeList=(ArrayList<NoticeDTO>)request.getAttribute("noticeList");
-                                             String id = "admin";
-                        %>   
-                             <table>
-                            
+						<%
+                        	ArrayList<NoticeDTO> noticeList=(ArrayList<NoticeDTO>)request.getAttribute("noticeList");
+                       		String id = "admin";
+                       		%>   
                              
-                         
-<!--                             <div class="row gx-5"> -->
-<!--                         <div class="col-xl-8"> -->
-
+                             <table>
                               <%
-                              
-
                               		  	for(int i=0; i<noticeList.size(); i++){
                               				  NoticeDTO dto=noticeList.get(i);
                               %>
-						  <div class="accordion mb-5" id="accordionExample">
+							 <div class="accordion mb-5" id="accordionExample">
                                 <div class="accordion-item">
                                     <h3 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" ><%=dto.getNo_subject() %></button></h3>
                                     <div class="accordion-collapse collapse " id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                           <strong> <%=dto.getNo_content() %></strong><br>
 											<%=dto.getNo_date() %><br>
-                                           <%if(id=="admin"){
-                                        	   
+                                           <%if(id=="admin"){ 
                                         	  %>
                                         	  <input type="button" name="write" value="수정" onclick="location.href='NoticeUpdateForm.no?num=<%=dto.getNo_num()%>'">
                                         	  <input type="button" name="delete" value="삭제" onclick="location.href='NoticeDelete.no?num=<%=dto.getNo_num()%>'">                       
                                         	  <%
                                            }
                                            %>
-                                           
                                          </div>
                                     </div>
                                  </div>
                              </div>
-					<%	  	}	 %>   </table>
-					
+					<%	  	}	 %>  
+					 </table>
 					<% 
 						if(id!=null){
                      	%>
-                           <a href="NoticeWriteForm.no"><i class="bi bi-star-fill text-warning"></i>글쓰기</a> 
-                           
-                           <%
-                           
+                           <a href="NoticeWriteForm.no"><i class="bi bi-star-fill text-warning"></i>글쓰기</a>          
+                           <%       
                            }
                            %>
                         </div>
-               
-
                     </div>
-
-
             </section>
         </main>
         <!-- Footer-->
@@ -132,4 +114,3 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
-    

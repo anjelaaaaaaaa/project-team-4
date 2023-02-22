@@ -35,10 +35,10 @@ public class SpaceUpdatePro implements Action{
 			int num = Integer.parseInt(multi.getParameter("num"));
 			System.out.println(num);
 			String name = multi.getParameter("name");
-			String address = multi.getParameter("address");
+			String address = multi.getParameter("roadFullAddr");
 			String bill = multi.getParameter("bill");
-			String sido = multi.getParameter("sido");
-			String gungu = multi.getParameter("gungu");
+			String sido = multi.getParameter("siNm");
+			String gungu = multi.getParameter("sggNm");
 			String memo = multi.getParameter("memo");
 			String max = multi.getParameter("max");
 			String file = multi.getFilesystemName("file");

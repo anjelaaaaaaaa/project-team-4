@@ -55,13 +55,10 @@
                     <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                            <h1 class="fw-bolder">공지사항 작성하기</h1>
-                           
+                            <h1 class="fw-bolder">공지사항 작성하기</h1> 
                         </div>
                         
-                        <%
-							   NoticeDTO dto=(NoticeDTO)request.getAttribute("dto");
- %>
+                        <% NoticeDTO dto=(NoticeDTO)request.getAttribute("dto");%>
   
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
@@ -69,25 +66,15 @@
                                 <input type="hidden" name="num" value="<%=dto.getNo_num()%>">    
                                     <!-- Name input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" name="subject" value="<%=dto.getNo_subject() %>" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                        <input class="form-control" name="subject" value="<%=dto.getNo_subject() %>" type="text" placeholder="Enter title..." required/>
                                         <label for="name">제목</label>
                                     </div>
-                                    
                                     <!-- Message input-->
                                     <div class="form-floating mb-3">
-                                        <textarea class="form-control" name="content" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"><%=dto.getNo_content().trim() %></textarea>
+                                        <textarea class="form-control" name="content" type="text" placeholder="Enter your message here..." style="height: 10rem" required"><%=dto.getNo_content().trim() %></textarea>
                                         <label for="message">내용</label>
                                     </div>
 
-                                    <div class="d-none" id="submitSuccessMessage">
-                                        <div class="text-center mb-3">
-                                            <div class="fw-bolder">Form submission successful!</div>
-                                            To activate this form, sign up at
-                                            <br />
-                                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                        </div>
-                                    </div>
-                                   
                                     <!-- Submit Button-->
                                     <div class="d-grid">
                                     <input class="btn btn-primary btn-lg" href="#scroll-target" type="submit" value="등록하기">
@@ -135,11 +122,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>
-    

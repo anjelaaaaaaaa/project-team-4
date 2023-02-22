@@ -105,8 +105,7 @@
              			<td><%= dto.getS_max() %></td>
              			<td><%= dto.getS_bill() %></td>
              			<td><input type="button" name="write" value="수정" onclick="location.href='SpaceUpdateForm.sp?num=<%=dto.getS_num()%>'"></td>
-                        <td><input type="button" name="delete" value="삭제" onclick="location.href='SpaceDeleteForm.sp?num=<%=dto.getS_num()%>'"></td></tr>                   
-                                        	  
+                        <td><input type="button" name="delete" value="삭제" onclick="location.href='SpaceDeleteForm.sp?num=<%=dto.getS_num()%>'"></td></tr>                                    	  
              		<%
              	}
             %>
@@ -114,14 +113,14 @@
 
               <div class="row gx-5">
             <!-- 공간프리뷰 1 -->	
-<div class="col-lg-4 mb-5">
-    <div class="card h-100 shadow border-0">
-        <img class="card-img-top" src="s1.jpg" alt="..." />
-        	<div class="card-body p-4">
-            	<div class="badge bg-primary bg-gradient rounded-pill mb-2">New</div>
-           		 <a class="text-decoration-none link-dark stretched-link" href="spaceupdate.jsp"><h5 class="card-title mb-3">꿈나라 스터디룸</h5></a>
-            	 <p class="card-text mb-0">서면역 5분거리</p>
-        	</div>
+		<div class="col-lg-4 mb-5">
+		    <div class="card h-100 shadow border-0">
+		        <img class="card-img-top" src="s1.jpg" alt="..." />
+		        	<div class="card-body p-4">
+		            	<div class="badge bg-primary bg-gradient rounded-pill mb-2">New</div>
+		           		 <a class="text-decoration-none link-dark stretched-link" href="spaceupdate.jsp"><h5 class="card-title mb-3">꿈나라 스터디룸</h5></a>
+		            	 <p class="card-text mb-0">서면역 5분거리</p>
+		        	</div>
         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
             <div class="d-flex align-items-end justify-content-between">
                 <div class="d-flex align-items-center">

@@ -11,10 +11,8 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        
+        <link href="css/styles.css" rel="stylesheet" />  
     <style>
-
       h1.b:after {
         content: "";
         display: block;
@@ -67,17 +65,17 @@
                         <h1 class="b">host mypage</h1>
                     </br>
                     </br>
-                    
                      <%
-								String id=(String)session.getAttribute("id");
-								int num = (Integer)request.getAttribute("num");
+						String id=(String)session.getAttribute("id");
+						int num = (Integer)request.getAttribute("num");
 								%>		
-                    
-                    <div class="h6 fw-bolder">host <%=id %>님</div>
-                    </br>
+                     <div>
+                    <i class="bi bi-star-fill text-warning"></i>
+                  <label for="phone"> Host <b><%=id %></b>님,</label>
+					 </div>
+					<br>
                     <a class="btn btn-primary" href="#!">회원정보수정</a>
-                    <a class="btn btn-primary" href="#!">회원탈퇴</a>
-                    
+                    <a class="btn btn-primary" href="#!">회원탈퇴</a> 
                 </div>
             </div>
             <!-- Call to Action-->
@@ -89,7 +87,7 @@
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h2 class="card-title">공간내역</h2>
+                            <h2 class="card-title" >공간내역</h2>
                             <p class="card-text">등록된 공간내역이 없습니다.</p>
                         </div>
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="SpaceList.sp">바로가기</a></div>
@@ -115,7 +113,6 @@
                 </div>
             </div>
         </div>
-       
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
@@ -126,4 +123,3 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
-    

@@ -42,10 +42,10 @@ public class SpaceInsertPro implements Action{
 //		request 태그이름에 해당하는 값을 가져오기 =>변수에 저장
 //		id, pass, name의 변수는 jsp에서 들고감 자바로 !! 
 		String name = multi.getParameter("name");
-		String address = multi.getParameter("address");
+		String address = multi.getParameter("roadFullAddr");
 		String bill = multi.getParameter("bill");
-		String sido = multi.getParameter("sido");
-		String gungu = multi.getParameter("gungu");
+		String sido = multi.getParameter("siNm");
+		String gungu = multi.getParameter("sggNm");
 		String memo = multi.getParameter("memo");
 		String max = multi.getParameter("max");
 		
