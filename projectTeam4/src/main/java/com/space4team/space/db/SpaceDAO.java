@@ -145,7 +145,7 @@ public class SpaceDAO {
 			return spaceList;
 	}
 	
-	public int getSpaceCount() {
+	public int getSpaceCount(MemberDTO mdto) {
 		int count = 0;
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -153,8 +153,9 @@ public class SpaceDAO {
 		
 		try {
 			con = getConnection();
-			String sql = "select count(*) from space";
+			String sql = "select count(*) from space where h_num =?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mdto.getH_num());
 			
 			rs = pstmt.executeQuery();
 			

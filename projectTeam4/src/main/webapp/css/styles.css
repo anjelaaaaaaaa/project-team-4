@@ -11304,4 +11304,8 @@ textarea.form-control-lg {
   	align-items: center;
   	position : relative;
   }
+  .pagenumber{
+  	text-align: center;
+  }
+  
 }

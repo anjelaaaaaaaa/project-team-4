@@ -34,11 +34,9 @@
    font-weight:bold; 
    font-size:large;
 	}
-    </style>
-        
+    </style>    
     </head>
     <body>
-
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
@@ -55,23 +53,19 @@
             </div>
         </nav>
         <!-- Page Content-->
- 
         <div class="container px-4 px-lg-5">
             <!-- Heading Row-->
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            
                 <div class="col-lg-5">
-                
-                        <h1 class="b">host mypage</h1>
-                    </br>
-                    </br>
+               <h1 class="b">Host mypage</h1>
+                </br></br>
                      <%
 						String id=(String)session.getAttribute("id");
 						int num = (Integer)request.getAttribute("num");
 								%>		
                      <div>
                     <i class="bi bi-star-fill text-warning"></i>
-                  <label for="phone"> Host <b><%=id %></b>님,</label>
+                  <label for="phone"> 호스트 <b><%=id %></b>님,</label>
 					 </div>
 					<br>
                     <a class="btn btn-primary" href="#!">회원정보수정</a>
@@ -80,7 +74,7 @@
             </div>
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
+                <div class="card-body"><p class="text-white m-0">space4team</p></div>
             </div>
             <!-- Content Row-->
             <div class="row gx-4 gx-lg-5">

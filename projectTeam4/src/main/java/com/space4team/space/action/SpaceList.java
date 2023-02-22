@@ -26,7 +26,7 @@ public class SpaceList implements Action{
 		System.out.println(mdto.getH_id());
 		System.out.println(mdto.getH_num()); // host number 출력됨 
 		
-		int pageSize = 5;
+		int pageSize = 6;
 		String pageNum = request.getParameter("pageNum");
 		
 		if(pageNum ==null) {
@@ -42,11 +42,14 @@ public class SpaceList implements Action{
 		int pageBlock = 3;
 		int startPage = (currentPage -1 )/pageBlock * pageBlock + 1;
 		int endPage = startPage + pageBlock -1;
-		int count = dao.getSpaceCount();
+		int count = dao.getSpaceCount(mdto);
 		int pageCount = count/pageSize + (count%pageSize==0?0:1);
 		if(endPage > pageCount) {
 			endPage = pageCount;
 		}
+		System.out.println("pageCount:"+pageCount);
+		System.out.println("endPage"+endPage);
+		System.out.println("count"+count);
 		
 		request.setAttribute("spaceList", spaceList);
 		request.setAttribute("currentPage", currentPage);

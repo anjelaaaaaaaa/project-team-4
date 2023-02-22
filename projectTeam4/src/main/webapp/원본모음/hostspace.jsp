@@ -63,35 +63,71 @@
             <!-- Heading Row-->
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
                 <div class="col-lg-5">
-                        <h1 class="b">Host mypage</h1>
+                        <h1 class="b">공간내역</h1>
                     </br>
                     </br>
+                    
                      <%
 						String id=(String)session.getAttribute("id");
 						int num = (Integer)request.getAttribute("num");
 						%>		
-                    <div class="h6 fw-bolder">호스트 <b><%=id %></b>님,</div>
+                    <div class="h6 fw-bolder">호스트 <%=id %>님</div>
                     </br>
-                  
+                    <a class="btn btn-primary" href="spaceupdate.jsp">회원정보수정</a>
+                    <a class="btn btn-primary" href="#!">회원탈퇴</a>  
                 </div>
             </div>
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><p class="text-white m-0">space4team</p></div>
+                <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
             </div>
+
+		<%
+//              ArrayList<SpaceDTO> spaceList = (ArrayList<SpaceDTO>)request.getAttribute("spaceList");
+      
+//              int currentPage = (Integer)request.getAttribute("currentPage");
+//              int startPage = (Integer)request.getAttribute("startPage");
+//              int pageBlock = (Integer)request.getAttribute("pageBlock");
+//              int endPage = (Integer)request.getAttribute("endPage");
+//              int pageCount = (Integer)request.getAttribute("pageCount");
+            
+            	 %>         
+<!--             <table border="1"> -->
+<!--              		<tr><td>공간번호 </td><td>공간이름 </td><td>공간주소 </td><td>최대수용인원 </td><td>가격</td></tr> -->
+            <%
+//              	for (int i = 0; i<spaceList.size(); i++){
+//              		SpaceDTO dto = spaceList.get(i);
+             		%>
+             		
+<%--              		 <tr><td><a href="SpaceUpdateForm.sp?num=<%=dto.getS_num()%>"><%=dto.getS_num() %></a></td> --%>
+<%--              			<td><%=dto.getS_name()%></td> --%>
+<%--              			<td><%= dto.getS_address()%></td> --%>
+<%--              			<td><%= dto.getS_max() %></td> --%>
+<%--              			<td><%= dto.getS_bill() %></td> --%>
+<%--              			<td><input type="button" name="write" value="수정" onclick="location.href='SpaceUpdateForm.sp?num=<%=dto.getS_num()%>'"></td> --%>
+<%--                         <td><input type="button" name="delete" value="삭제" onclick="location.href='SpaceDeleteForm.sp?num=<%=dto.getS_num()%>'"></td></tr>                                    	   --%>
+             		<%
+//              	}
+            %>
+            	</table>
   <section class="py-5">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-8 col-xl-6">
                             <div class="text-center">
-                                <h2 class="fw-bolder">공간내역</h2>
-                                <p class="lead fw-normal text-muted mb-5">호스트 <b><%=id %></b>님의 등록된 공간내역입니다</p>
+                                <h2 class="fw-bolder">공간 둘러보기</h2>
+                                <p class="lead fw-normal text-muted mb-5">space for team에서 볼 수 있는 공간을 준비했어요</p>
                             </div>
                         </div>
                     </div>
                     <div class="row gx-5">
+          <%
+// 			SpaceDTO sdto = (SpaceDTO)request.getAttribute("sdto");
+						%>	          
+  
 		<%
              ArrayList<SpaceDTO> spaceList = (ArrayList<SpaceDTO>)request.getAttribute("spaceList");
+      
              int currentPage = (Integer)request.getAttribute("currentPage");
              int startPage = (Integer)request.getAttribute("startPage");
              int pageBlock = (Integer)request.getAttribute("pageBlock");
@@ -99,57 +135,49 @@
              int pageCount = (Integer)request.getAttribute("pageCount");
             
              MemberDTO mdto = (MemberDTO)request.getAttribute("mdto");
+            	 %>         
             
-				for (int i = 0; i<spaceList.size(); i++){
-					SpaceDTO dto = spaceList.get(i);
-				%>            		
+	<%
+	for (int i = 0; i<spaceList.size(); i++){
+		SpaceDTO dto = spaceList.get(i);
+	%>            		
 <div class="col-lg-4 mb-5">
   
     <div class="card h-100 shadow border-0">
-  		 
+        <img class="card-img-top" src=<%=dto.getS_file() %> alt="..." />
         	<div class="card-body p-4">
-            	<div class="badge bg-primary bg-gradient rounded-pill mb-2">공간번호<%=dto.getS_num() %></div>
-           		 <a class="text-decoration-none " ><h5 class="card-title mb-3"><%=dto.getS_name() %></h5></a>
-            	 <b><p class="card-text mb-0"><%=dto.getS_memo() %></p></b>
-            	 <p class="m-0 text-muted"><%=dto.getS_address()%></p>
+            	<div class="badge bg-primary bg-gradient rounded-pill mb-2">New</div>
+           
+           		 <a class="text-decoration-none link-dark stretched-link" href="jsp/good.jsp"><h5 class="card-title mb-3"><%=dto.getS_name() %></h5></a>
+            	 <p class="card-text mb-0"><%=dto.getS_memo() %></p>
         	</div>
         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
             <div class="d-flex align-items-end justify-content-between">                    
 				<div class="d-flex align-items-center" style="font-weight: bold; font-size: 25px;">
 					<%=dto.getS_bill() %> 원  
 				</div>
-				<code>최대 수용인원 :<%=dto.getS_max() %></code>
-			  </div>
-                <input type="button" name="write" value="수정" onclick="location.href='SpaceUpdateForm.sp?num=<%=dto.getS_num()%>'">
+				<input type="button" name="write" value="수정" onclick="location.href='SpaceUpdateForm.sp?num=<%=dto.getS_num()%>'">
 				<input type="button" name="delete" value="삭제" onclick="location.href='SpaceDeleteForm.sp?num=<%=dto.getS_num()%>'">
-				<input type="button" name="detail" value="상세페이지" onclick="location.href='SpaceDetail.sp?num<%=dto.getS_num()%>'">
+           <div class="small">                     
+       <div class="text-muted">
+      <div class="fw-bold">
+      <i class="fa-solid fa-user fa-sm"> 최대 <%=dto.getS_max() %></i> 
+
+      
+      </div>
+                                   </div>
+                               </div>
+                           
+                       </div>
                    </div>
                </div>
            </div>
-			<%
-			}
-			%> 		
+	<%
+	}
+	%> 		
            </div>
            </div>
- 			<div class="text-center">
-           <%
-				if(startPage > pageBlock){
-			%>
-				<a href="SpaceList.sp?pageNum=<%=startPage-pageBlock%>">Prev</a>
-			<%
-					}
-					for(int i=startPage;i<=endPage;i++){
-			%>
-					<a href="SpaceList.sp?pageNum=<%=i%>"><%=i %></a> 
-			<%
-					}
-				if(endPage < pageCount){
-			%>
-					<a href="SpaceList.sp?pageNum=<%=startPage+pageBlock%>">Next</a>
-			<%
-					}
-           %>
- 			</div>
+
             </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
@@ -161,3 +189,4 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+    

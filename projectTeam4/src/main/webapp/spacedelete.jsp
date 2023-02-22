@@ -16,6 +16,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script src="script/jquery-3.6.3.js"></script>
+      <script type="text/javascript" src="script/jquery-3.6.3.js">  </script>
     </head>
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
@@ -69,43 +71,42 @@
                               	  		<input type="hidden" name="id" value="<%=id %>">
                             		<div>
                                     	<i class="bi bi-star-fill text-warning"></i>
-                                        <label for="hostnumber">host <%=id %> 님의 공간입니다. </label><br>
+                                        <label for="hostnumber">host <b><%=id %></b>님의 공간입니다. </label><br>
                                     </div> <br>
                             		 <div>
                                     	<i class="bi bi-star-fill text-warning"></i>
-                                        <label for="phone">공간번호 : <%=dto.getS_num() %></label>
+                                        <label for="phone">공간번호 : <b><%=dto.getS_num()%></b></label>
                                     </div> <br>
                                     <div class="form-floating mb-3">
                                         <input class="form-control" name="name" type="text" value="<%=dto.getS_name() %>" readonly>
-                                        <label for="name"><i class="bi bi-star-fill text-warning"></i>공간의 이름을 지어주세요</label>
-                                        <div class="invalid-feedback" data-sb-feedback="name:required">필수입력란 입니다.</div>
+                                        <label for="name"><i class="bi bi-star-fill text-warning"></i>공간이름</label>
                                     </div>
 									<div >
                                         <i class="bi bi-star-fill text-warning"></i>
-                                        <label for="phone">요금을 설정하세요 </label><br>
-                                        <input type="number" name="bill" min="10000" max="5000000" value="<%=dto.getS_bill()%>" readonly> / hr 
+                                        <label for="phone">시간당 요금 </label><br>
+                                        <input type="number" name="bill" min="10000" max="5000000" value="<%=dto.getS_bill()%>" readonly> / Hr 
                                         <br><br>
                                     </div>
                                       <div class="form-floating mb-3">
-                                        <input class="form-control" name="address" type="text" placeholder="name@example.com" value ="<%=dto.getS_address() %>" readonly>
-                                        <label for="location"><i class="bi bi-star-fill text-warning"></i>주소를 입력하세요</label>
+                                        <input class="form-control" name="address" type="text" placeholder="address" value ="<%=dto.getS_address() %>" readonly>
+                                        <label for="location"><i class="bi bi-star-fill text-warning"></i>공간주소</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" name="sido" type="text" placeholder="name@example.com" value="<%=dto.getS_sido() %>" readonly>
-                                        <label for="location"><i class="bi bi-star-fill text-warning"></i>위치정보를 입력하세요 (시,도)</label>
+                                        <input class="form-control" name="sido" type="text" placeholder="sido" value="<%=dto.getS_sido() %>" readonly>
+                                        <label for="location"><i class="bi bi-star-fill text-warning"></i>공간 위치정보(시,도)</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" name="gungu" type="text" placeholder="name@example.com" value="<%=dto.getS_gungu() %>" readonly>
-                                        <label for="location"><i class="bi bi-star-fill text-warning"></i>위치정보를 입력하세요 (군,구)</label>
+                                        <input class="form-control" name="gungu" type="text" placeholder="gungu" value="<%=dto.getS_gungu() %>" readonly>
+                                        <label for="location"><i class="bi bi-star-fill text-warning"></i>공간 위치정보(군,구)</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <textarea class="form-control" name="memo" type="text" placeholder="Enter" style="height: 10rem" readonly><%=dto.getS_memo().trim() %>
                                         </textarea>
-                                        <label for="message"><i class="bi bi-star-fill text-warning"></i>공간에 대해 설명해주세요</label>
+                                        <label for="message"><i class="bi bi-star-fill text-warning"></i>공간 설명</label>
                                     </div>
                                     <div>
                                         <i class="bi bi-star-fill text-warning"></i>
-                                        <label for="phone">공간의 옵션정보를 알려주세요</label><br>
+                                        <label for="phone">공간의 옵션정보</label><br>
                                         <br>
                                     <label><input type="checkbox" id="option" name="option" value="엘레베이터"> 엘레베이터　</label>
                                     <label><input type="checkbox" id="option" name="option" value="주차장"> 주차장　</label>
@@ -122,19 +123,15 @@
 								  </div>
                                   <div>
                                     	<i class="bi bi-star-fill text-warning"></i>
-                                        <label for="phone">공간의 사진을 등록하세요</label><br>
+                                        <label for="phone">공간사진</label><br>
                                         <br>
-<!--                                         accept 속성을 img/*로 지정할 경우 이미지 파일만 업로드 가능해짐  -->
-                                       	<input type="file" accept="image/*" onchange="PreviewImage(event);" name = "file" id="image" multiple >
-                                    	<%=dto.getS_file() %>
-                                    	<input type="hidden" name="oldfile" value="<%=dto.getS_file() %>">
                                     </div>
-                                    <div id="image_container"></div> <br><br>
+                                    <div id="preview"> <img src="upload/<%=dto.getS_file()%>" width="300"> <%=dto.getS_file() %></div>
+                                    <br><br>
                                   	<div class="form-floating mb-3">
-                                        <input class="form-control" name="pass" type="password" placeholder="name@example.com"  required>
+                                        <input class="form-control" name="pass" type="password"  placeholder="password" required>
                                         <label for="location"><i class="bi bi-star-fill text-warning"></i><code>비밀번호를 입력하세요</code></label>
                                     </div> <br>
-
                                     <!-- Submit Button-->
                                     <input class="btn btn-primary btn-lg" href="#scroll-target" type="submit" value="삭제하기">
                                 </form>

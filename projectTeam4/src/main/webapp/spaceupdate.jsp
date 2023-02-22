@@ -145,12 +145,11 @@
                                         <label for="phone">공간의 사진을 등록하세요<code>(삭제 버튼 클릭시 전체 이미지가 초기화됩니다)</code></label><br>
                                         <br>
 <!--                                         accept 속성을 img/*로 지정할 경우 이미지 파일만 업로드 가능해짐  -->
-                                       <input type="file" accept="image/*" onchange="PreviewImage(event);" name = "file" class ="inp-img" id="image"  multiple >
-                                    	<%=dto.getS_file() %>
-                                    	<input type="hidden" name="oldfile" value="<%=dto.getS_file() %>">
-                                    	  <span class="btn-delete"><code>☞삭제</code></span>
+                                    <input type="file" accept="image/*" onchange="PreviewImage(event);" name = "file" class ="inp-img" id="image"  multiple >
+                                    <input type="hidden" name="oldfile" value="<%=dto.getS_file() %>">
+                                    <span class="btn-delete"><code>☞삭제</code></span>
                                     </div>
-                                    <div id="preview"></div>
+                                    <div id="preview"> <img src="upload/<%=dto.getS_file()%>" width="300"> <%=dto.getS_file() %></div>
                                     <br><br>
                                     <!-- Submit Button-->
                                     <input class="btn btn-primary btn-lg" href="#scroll-target" type="submit" value="수정하기">
