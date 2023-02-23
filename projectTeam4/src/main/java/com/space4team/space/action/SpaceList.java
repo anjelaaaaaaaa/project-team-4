@@ -59,7 +59,7 @@ public class SpaceList implements Action{
 		request.setAttribute("pageCount", pageCount);
 	
 		ActionForward forward = new ActionForward();
-		forward.setPath("host/hostspace.jsp");
+		forward.setPath("host/spacelist.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

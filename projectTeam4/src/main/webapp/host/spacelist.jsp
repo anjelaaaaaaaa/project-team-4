@@ -13,7 +13,7 @@
         <title>Small Business - Start Bootstrap Template</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <link href="css2/styles.css" rel="stylesheet" />
+        <link href="css/styles2.css" rel="stylesheet" />
         
     <style>
       h1.b:after {
