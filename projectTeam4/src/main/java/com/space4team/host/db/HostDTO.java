@@ -1,8 +1,8 @@
-package com.space4team.member.db;
+package com.space4team.host.db;
 
 import java.sql.Timestamp;
 
-public class MemberDTO {
+public class HostDTO {
 	// 데이터를 담아서 다른 클래스 전달 
 	//멤버변수 => 데이터 은닉 => 캡슐화
 	private int h_num;

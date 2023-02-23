@@ -21,10 +21,9 @@ public class SpaceInsertForm implements Action{
 		request.setAttribute("num", num);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("upload.jsp");
+		forward.setPath("space/spaceinsert.jsp");
 		forward.setRedirect(false);
 		
 		return forward;
 	}
-
 }

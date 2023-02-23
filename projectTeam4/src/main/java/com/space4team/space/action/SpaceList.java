@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.space4team.member.db.MemberDAO;
-import com.space4team.member.db.MemberDTO;
+import com.space4team.host.db.HostDAO;
+import com.space4team.host.db.HostDTO;
 import com.space4team.space.db.SpaceDAO;
 import com.space4team.space.db.SpaceDTO;
 
@@ -21,8 +21,8 @@ public class SpaceList implements Action{
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
 		
-		MemberDAO mdao = new MemberDAO();
-		MemberDTO mdto = mdao.gethost(id);
+		HostDAO mdao = new HostDAO();
+		HostDTO mdto = mdao.gethost(id);
 		System.out.println(mdto.getH_id());
 		System.out.println(mdto.getH_num()); // host number 출력됨 
 		
@@ -59,7 +59,7 @@ public class SpaceList implements Action{
 		request.setAttribute("pageCount", pageCount);
 	
 		ActionForward forward = new ActionForward();
-		forward.setPath("hostspace.jsp");
+		forward.setPath("host/hostspace.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

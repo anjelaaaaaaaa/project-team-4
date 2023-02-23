@@ -1,4 +1,4 @@
-package com.space4team.member.action;
+package com.space4team.host.action;
 
 import java.io.PrintWriter;
 
@@ -6,21 +6,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.space4team.member.db.MemberDAO;
-import com.space4team.member.db.MemberDTO;
+import com.space4team.host.db.HostDAO;
+import com.space4team.host.db.HostDTO;
 
-public class MemberLoginPro implements Action{
+public class HostLoginPro implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("MemberLoginPro execute()");
+		System.out.println("HostLoginPro execute()");
 		// request 가져오기
 		String id=request.getParameter("id");
 		String pass=request.getParameter("pass");
 		System.out.println(id + pass);
 		// MemberDAO 객체생성
-		MemberDAO dao=new MemberDAO();
+		HostDAO dao=new HostDAO();
 		// MemberDTO = userCheck() 메서드호출
-		MemberDTO dto=dao.userCheck(id, pass);
+		HostDTO dto=dao.userCheck(id, pass);
 		request.setAttribute("dto", dto);
 // 		dto != null 아이디 비밀번호 일치 세션값 생성 MemberMain.me 이동
 //                   아이디 비밀번호 틀림 , 뒤로이동	
@@ -32,7 +32,7 @@ public class MemberLoginPro implements Action{
 			session.setAttribute("id", id);
 
 			forward=new ActionForward();
-			forward.setPath("HostMain.me");
+			forward.setPath("HostMain.ho");
 			forward.setRedirect(true);
 			
 		}

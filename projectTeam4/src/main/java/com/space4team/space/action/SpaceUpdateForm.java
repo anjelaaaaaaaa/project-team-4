@@ -7,7 +7,6 @@ import com.space4team.space.db.SpaceDAO;
 import com.space4team.space.db.SpaceDTO;
 
 public class SpaceUpdateForm implements Action{
-
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("SpaceContent execute () 실행");
@@ -18,14 +17,12 @@ public class SpaceUpdateForm implements Action{
 		SpaceDAO dao = new SpaceDAO();
 		SpaceDTO dto = dao.getSpace(num);
 		
-//		Space DTO 생성하고 getboard 만들고,,,,, request로 보내주기 
 		request.setAttribute("dto", dto);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("spaceupdate.jsp");
+		forward.setPath("space/spaceupdate.jsp");
 		forward.setRedirect(false);
 		
 		return forward;
 	}
-
 }

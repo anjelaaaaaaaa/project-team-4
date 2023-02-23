@@ -1,4 +1,4 @@
-package com.space4team.member.action;
+package com.space4team.host.action;
 
 import java.io.IOException;
 
@@ -8,22 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MemberFrontController extends HttpServlet{
-
+public class HostFrontController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("MemberFrontController doGet()");
+		System.out.println("HostFrontController doGet()");
 		doProcess(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("MemberFrontController doPost()");
+		System.out.println("HostFrontController doPost()");
 		doProcess(request, response);
 	}
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("MemberFrontController doProcess()");
+		System.out.println("HostFrontController doProcess()");
 		
 		//가상 주소 뽑아오기
 		System.out.println("뽑은 가상주소 : "+request.getServletPath());
@@ -33,17 +32,17 @@ public class MemberFrontController extends HttpServlet{
 		//가상 주소 매핑(비교)
 		Action action=null;
 		ActionForward forward=null;
-			if(sPath.equals("/MemberLoginForm.me")) {
+			if(sPath.equals("/HostLoginForm.ho")) {
 				
 				forward=new ActionForward();
 				forward.setPath("login.jsp");
 				forward.setRedirect(false);
 			}
 		
-			else if(sPath.equals("/MemberLoginPro.me")) {
+			else if(sPath.equals("/HostLoginPro.ho")) {
 			System.out.println("loginpro.me 실행전");
 			
-			action=new MemberLoginPro();
+			action=new HostLoginPro();
 			
 			try {
 				forward=action.execute(request, response);
@@ -51,40 +50,46 @@ public class MemberFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 			
-		}else if(sPath.equals("/HostMain.me")) {
+		}else if(sPath.equals("/HostMain.ho")) {
 			
 			forward=new ActionForward();
-			forward.setPath("hostmain.jsp");
+			forward.setPath("host/hostmain.jsp");
 			forward.setRedirect(false);
 		
-		}else if(sPath.equals("/MemberLogout.me")) {
-			action=new MemberLogout();
+		}else if(sPath.equals("/HostLogout.ho")) {
+			action=new HostLogout();
 			try {
 				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(sPath.equals("/MemberIdCheck.me")) {
-			action=new MemberIdCheck();
+		}else if(sPath.equals("/HostIdCheck.ho")) {
+			action=new HostIdCheck();
 			try {
 				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(sPath.equals("/MemberUpdateForm.me")) {
+		}else if(sPath.equals("/HostUpdateForm.ho")) {
 //			action=new MemberUpdateForm();
 			try {
 				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(sPath.equals("/MemberUpdatePro.me")) {
+		}else if(sPath.equals("/HostUpdatePro.ho")) {
 //			action=new MemberUpdatePro();
 			try {
-				forward=action.execute(request, response);
+				forward= action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+		}else if(sPath.equals("/HostMypage.ho")) {
+			forward=new ActionForward();
+			forward.setPath("host/hostmypage.jsp");
+			forward.setRedirect(false);
+			
 		}
 		
 		//----------------------------------------------
@@ -98,9 +103,6 @@ public class MemberFrontController extends HttpServlet{
 				request.getRequestDispatcher(forward.getPath());
 		        dispatcher.forward(request, response);
 			}//if
-		}//if
-		
-		
+		}//if	
 	}//doProcess()
-
 }//MemberFrontController

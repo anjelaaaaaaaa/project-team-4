@@ -23,9 +23,13 @@
 		div.fw-bolder{
 		margin-left: 10px;
 	}
-	.btn-sm, .btn-group-sm > .btn {
-		margin-left: 130px;
+	.col-lg-5 {
+	flex: 0 0 auto;
+	width:98%;
 	}
+ 	.btn-sm, .btn-group-sm > .btn { 
+ 		margin-left: 130px; 
+ 	} 
     #sidebar{
    width: 15%;
    height: 680px;
@@ -66,10 +70,11 @@
                      <div>
                     <i class="bi bi-star-fill text-warning"></i>
                   <label for="phone"> 호스트 <b><%=id %></b>님,</label>
-					 </div>
-					<br>
+					 </div><br>
+					<div style="text-align:right;">
                     <a class="btn btn-primary" href="#!">회원정보수정</a>
                     <a class="btn btn-primary" href="#!">회원탈퇴</a> 
+               		 </div>
                 </div>
             </div>
             <!-- Call to Action-->
@@ -84,7 +89,7 @@
                             <h2 class="card-title" >공간내역</h2>
                             <p class="card-text">등록된 공간내역이 없습니다.</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="SpaceList.sp">바로가기</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm"  onclick="location.href='SpaceList.sp'">바로가기</a></div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">

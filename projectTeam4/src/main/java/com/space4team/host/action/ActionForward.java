@@ -1,4 +1,4 @@
-package com.space4team.member.action;
+package com.space4team.host.action;
 
 public class ActionForward {
 //	String path ="주소정보";

@@ -122,11 +122,12 @@
 </div>
 <div class="btn">
 
-<button class="block"><a href="hostmypage.jsp">공간관리 </a></button>
+<button class="block"><a href="HostMypage.ho">공간관리 </a></button>
 </div>
 <div class="btn">
-<button class="block">문의하기</button>
+<button class="block"><a href="NoticeList.no">공지사항 게시판 바로가기</button>
 </div>
+
             
             <!-- Features section-->
                 <!-- Blog preview section-->

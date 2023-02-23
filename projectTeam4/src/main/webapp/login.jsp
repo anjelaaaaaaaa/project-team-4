@@ -30,7 +30,7 @@
 <!-- 본문내용 -->
 <article>
 <h1>Login</h1>
-<form action="MemberLoginPro.me"  method="post">
+<form action="HostLoginPro.ho"  method="post">
 <fieldset>
 <legend>Login Info</legend>
 <label>User ID</label>

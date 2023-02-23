@@ -21,7 +21,7 @@ public class SpaceDeleteForm implements Action{
 		request.setAttribute("dto", dto);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("spacedelete.jsp");
+		forward.setPath("space/spacedelete.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

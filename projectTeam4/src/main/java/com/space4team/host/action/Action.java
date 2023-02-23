@@ -1,4 +1,4 @@
-package com.space4team.member.action;
+package com.space4team.host.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

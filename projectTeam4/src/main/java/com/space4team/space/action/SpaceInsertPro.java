@@ -8,8 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.space4team.member.db.MemberDAO;
-import com.space4team.member.db.MemberDTO;
+import com.space4team.host.db.HostDAO;
+import com.space4team.host.db.HostDTO;
 import com.space4team.space.db.SpaceDAO;
 import com.space4team.space.db.SpaceDTO;
 
@@ -80,8 +80,8 @@ public class SpaceInsertPro implements Action{
 		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
-		MemberDAO mdao = new MemberDAO();
-		MemberDTO mdto = mdao.gethost(id);
+		HostDAO mdao = new HostDAO();
+		HostDTO mdto = mdao.gethost(id);
 		System.out.println(mdto.getH_id());
 		
 		SpaceDAO dao = new SpaceDAO();
@@ -93,7 +93,7 @@ public class SpaceInsertPro implements Action{
 //		actionForward(이동정보를 담는 객체)를 생성함 ! 
 //		여기에 setPath, setRedirect에 이동정보를 담아서 그 객체를 들고 호출한 곳으로 돌아감. return forward 
 		ActionForward forward = new ActionForward();
-		forward.setPath("hostmain.jsp");
+		forward.setPath("host/hostmain.jsp");
 		forward.setRedirect(true);
 		
 		return forward;

@@ -1,5 +1,5 @@
 <%@page import="com.space4team.space.db.SpaceDTO"%>
-<%@page import="com.space4team.member.db.MemberDTO"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -133,7 +133,9 @@
                                         <label for="location"><i class="bi bi-star-fill text-warning"></i><code>비밀번호를 입력하세요</code></label>
                                     </div> <br>
                                     <!-- Submit Button-->
+                                    <div style="text-align:center">
                                     <input class="btn btn-primary btn-lg" href="#scroll-target" type="submit" value="삭제하기">
+                                    </div>
                                 </form>
                             </div>
                         </div>

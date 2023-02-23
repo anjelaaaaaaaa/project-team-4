@@ -10,7 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.space4team.member.db.MemberDTO;
+import com.space4team.host.db.HostDTO;
 
 
 public class SpaceDAO {
@@ -61,7 +61,7 @@ public class SpaceDAO {
 		}return num;
 	}
 	
-	public void insertSpace (SpaceDTO dto, MemberDTO mdto) {
+	public void insertSpace (SpaceDTO dto, HostDTO mdto) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -105,7 +105,7 @@ public class SpaceDAO {
 			}return;
 		}
 	
-	public ArrayList<SpaceDTO> getSpaceList(int startRow, int pageSize, MemberDTO mdto){
+	public ArrayList<SpaceDTO> getSpaceList(int startRow, int pageSize, HostDTO mdto){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -145,7 +145,7 @@ public class SpaceDAO {
 			return spaceList;
 	}
 	
-	public int getSpaceCount(MemberDTO mdto) {
+	public int getSpaceCount(HostDTO mdto) {
 		int count = 0;
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -209,7 +209,7 @@ public class SpaceDAO {
 		return dto;
 		
 	
-		} public void updateSpace(SpaceDTO dto, MemberDTO mdto) {
+		} public void updateSpace(SpaceDTO dto, HostDTO mdto) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		System.out.println("updateSpace 시도! sql구문 시작전 ");

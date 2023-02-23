@@ -79,7 +79,7 @@
                                    </div>
                                    <br>
                                    <div class="d-grid">
-                                   <input class="btn btn-primary btn-lg" onclick="location.href='NoticeList.no'" type="button" value="뒤로가기"> 
+                                   <input class="btn btn-primary btn-lg" onclick="location.href='NoticeList.no'" type="button" value="목록으로 가기"> 
                                    </div>
                                 </form>
                             </div>

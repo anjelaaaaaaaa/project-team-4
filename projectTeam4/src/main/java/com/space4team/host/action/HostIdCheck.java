@@ -1,23 +1,23 @@
-package com.space4team.member.action;
+package com.space4team.host.action;
 
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.space4team.member.db.MemberDAO;
-import com.space4team.member.db.MemberDTO;
+import com.space4team.host.db.HostDAO;
+import com.space4team.host.db.HostDTO;
 
-public class MemberIdCheck implements Action{
+public class HostIdCheck implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("MemberIdCheck execute()");
+		System.out.println("HostIdCheck execute()");
 		// request  id파라미터 가져오기
 		String id=request.getParameter("id");
 		// MemberDAO 객체생성
-		MemberDAO dao=new MemberDAO();
+		HostDAO dao=new HostDAO();
 		// MemberDTO dto = getMember() 메서드 호출
-		MemberDTO dto=dao.gethost(id);
+		HostDTO dto=dao.gethost(id);
 		String result="";
 		// dto null 아니면 아이디 있음, 아이디 중복
 		// dto null 이면   아이디 없음, 아이디 사용가능

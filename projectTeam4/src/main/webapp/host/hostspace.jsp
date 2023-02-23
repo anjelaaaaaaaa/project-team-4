@@ -1,4 +1,4 @@
-<%@page import="com.space4team.member.db.MemberDTO"%>
+<%@page import="com.space4team.host.db.HostDTO"%>
 <%@page import="com.space4team.space.db.SpaceDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -16,7 +16,6 @@
         <link href="css2/styles.css" rel="stylesheet" />
         
     <style>
-
       h1.b:after {
         content: "";
         display: block;
@@ -63,24 +62,21 @@
             <!-- Heading Row-->
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
                 <div class="col-lg-5">
-                        <h1 class="b">Host mypage</h1>
-                    </br>
-                    </br>
+                        <h1 class="b">Host mypage - 공간내역</h1>
+                    </br></br>
                      <%
 						String id=(String)session.getAttribute("id");
 						int num = (Integer)request.getAttribute("num");
 						%>		
-                    <div class="h6 fw-bolder">호스트 <b><%=id %></b>님,</div>
-                    </br>
-                  
+                    <div class="h6 fw-bolder">호스트 <b><%=id %></b>님,</div></br>
                 </div>
             </div>
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
                 <div class="card-body"><p class="text-white m-0">space4team</p></div>
             </div>
-  <section class="py-5">
-                <div class="container px-5 my-5">
+ 			 <section class="py-5">
+<!--                 <div class="container px-5 my-5"> -->
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-8 col-xl-6">
                             <div class="text-center">
@@ -98,31 +94,32 @@
              int endPage = (Integer)request.getAttribute("endPage");
              int pageCount = (Integer)request.getAttribute("pageCount");
             
-             MemberDTO mdto = (MemberDTO)request.getAttribute("mdto");
+             HostDTO mdto = (HostDTO)request.getAttribute("mdto");
             
 				for (int i = 0; i<spaceList.size(); i++){
 					SpaceDTO dto = spaceList.get(i);
 				%>            		
 <div class="col-lg-4 mb-5">
-  
     <div class="card h-100 shadow border-0">
-  		 
         	<div class="card-body p-4">
             	<div class="badge bg-primary bg-gradient rounded-pill mb-2">공간번호<%=dto.getS_num() %></div>
            		 <a class="text-decoration-none " ><h5 class="card-title mb-3"><%=dto.getS_name() %></h5></a>
-            	 <b><p class="card-text mb-0"><%=dto.getS_memo() %></p></b>
+            	 <b><p class="card-text mb-0"><%=dto.getS_memo()%></p></b>
             	 <p class="m-0 text-muted"><%=dto.getS_address()%></p>
         	</div>
         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
             <div class="d-flex align-items-end justify-content-between">                    
 				<div class="d-flex align-items-center" style="font-weight: bold; font-size: 25px;">
-					<%=dto.getS_bill() %> 원  
+					<%=dto.getS_bill()%>원  
 				</div>
-				<code>최대 수용인원 :<%=dto.getS_max() %></code>
+				<code>최대 수용인원 :<%=dto.getS_max()%></code>
 			  </div>
+			  <br>
+			  <div style="text-align:center;">
                 <input type="button" name="write" value="수정" onclick="location.href='SpaceUpdateForm.sp?num=<%=dto.getS_num()%>'">
 				<input type="button" name="delete" value="삭제" onclick="location.href='SpaceDeleteForm.sp?num=<%=dto.getS_num()%>'">
-				<input type="button" name="detail" value="상세페이지" onclick="location.href='SpaceDetail.sp?num<%=dto.getS_num()%>'">
+				<input type="button" name="detail" value="상세페이지" onclick="location.href='SpaceInfoPro.sp?num<%=dto.getS_num()%>'">
+                  		</div>
                    </div>
                </div>
            </div>

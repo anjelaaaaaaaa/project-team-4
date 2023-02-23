@@ -1,5 +1,5 @@
 <%@page import="com.space4team.space.db.SpaceDTO"%>
-<%@page import="com.space4team.member.db.MemberDTO"%>
+<%@page import="com.space4team.host.db.HostDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -152,7 +152,9 @@
                                     <div id="preview"> <img src="upload/<%=dto.getS_file()%>" width="300"> <%=dto.getS_file() %></div>
                                     <br><br>
                                     <!-- Submit Button-->
+                                    <div style="text-align:center">
                                     <input class="btn btn-primary btn-lg" href="#scroll-target" type="submit" value="수정하기">
+                                    </div>
                                 </form>
                             </div>
                         </div>

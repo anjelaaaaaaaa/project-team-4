@@ -28,13 +28,13 @@
 	<!-- MemberFrontController라는 애가 처리하도록 맡김 !  -->
 
 	<servlet>
-		<servlet-name>MemberFrontController</servlet-name>
-		<servlet-class>com.space4team.member.action.MemberFrontController</servlet-class>
+		<servlet-name>HostFrontController</servlet-name>
+		<servlet-class>com.space4team.host.action.HostFrontController</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>MemberFrontController</servlet-name>
-		<url-pattern>*.me</url-pattern>
+		<servlet-name>HostFrontController</servlet-name>
+		<url-pattern>*.ho</url-pattern>
 	</servlet-mapping>
 	
 	<!--  가상주소(*.no) 들어오면 -> 주소매핑 처리하는 파일로 연결할거임 => 처리담당자(서블릿)로 연결  -->

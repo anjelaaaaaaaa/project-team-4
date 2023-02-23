@@ -1,4 +1,4 @@
-<%@page import="com.space4team.member.db.MemberDTO"%>
+<%@page import="com.space4team.host.db.HostDTO"%>
 <%@page import="com.space4team.space.db.SpaceDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -68,10 +68,10 @@
                     </br>
                     
                      <%
-						String id=(String)session.getAttribute("id");
-						int num = (Integer)request.getAttribute("num");
-						%>		
-                    <div class="h6 fw-bolder">호스트 <%=id %>님</div>
+                                         String id=(String)session.getAttribute("id");
+                                         				int num = (Integer)request.getAttribute("num");
+                                         %>		
+                    <div class="h6 fw-bolder">호스트 <%=id%>님</div>
                     </br>
                     <a class="btn btn-primary" href="spaceupdate.jsp">회원정보수정</a>
                     <a class="btn btn-primary" href="#!">회원탈퇴</a>  
@@ -83,21 +83,20 @@
             </div>
 
 		<%
-//              ArrayList<SpaceDTO> spaceList = (ArrayList<SpaceDTO>)request.getAttribute("spaceList");
-      
-//              int currentPage = (Integer)request.getAttribute("currentPage");
-//              int startPage = (Integer)request.getAttribute("startPage");
-//              int pageBlock = (Integer)request.getAttribute("pageBlock");
-//              int endPage = (Integer)request.getAttribute("endPage");
-//              int pageCount = (Integer)request.getAttribute("pageCount");
-            
-            	 %>         
+		//              ArrayList<SpaceDTO> spaceList = (ArrayList<SpaceDTO>)request.getAttribute("spaceList");
+		      
+		//              int currentPage = (Integer)request.getAttribute("currentPage");
+		//              int startPage = (Integer)request.getAttribute("startPage");
+		//              int pageBlock = (Integer)request.getAttribute("pageBlock");
+		//              int endPage = (Integer)request.getAttribute("endPage");
+		//              int pageCount = (Integer)request.getAttribute("pageCount");
+		%>         
 <!--             <table border="1"> -->
 <!--              		<tr><td>공간번호 </td><td>공간이름 </td><td>공간주소 </td><td>최대수용인원 </td><td>가격</td></tr> -->
             <%
-//              	for (int i = 0; i<spaceList.size(); i++){
-//              		SpaceDTO dto = spaceList.get(i);
-             		%>
+            //              	for (int i = 0; i<spaceList.size(); i++){
+            //              		SpaceDTO dto = spaceList.get(i);
+            %>
              		
 <%--              		 <tr><td><a href="SpaceUpdateForm.sp?num=<%=dto.getS_num()%>"><%=dto.getS_num() %></a></td> --%>
 <%--              			<td><%=dto.getS_name()%></td> --%>
@@ -107,8 +106,8 @@
 <%--              			<td><input type="button" name="write" value="수정" onclick="location.href='SpaceUpdateForm.sp?num=<%=dto.getS_num()%>'"></td> --%>
 <%--                         <td><input type="button" name="delete" value="삭제" onclick="location.href='SpaceDeleteForm.sp?num=<%=dto.getS_num()%>'"></td></tr>                                    	   --%>
              		<%
-//              	}
-            %>
+             		//              	}
+             		%>
             	</table>
   <section class="py-5">
                 <div class="container px-5 my-5">
@@ -122,20 +121,20 @@
                     </div>
                     <div class="row gx-5">
           <%
-// 			SpaceDTO sdto = (SpaceDTO)request.getAttribute("sdto");
-						%>	          
+          // 			SpaceDTO sdto = (SpaceDTO)request.getAttribute("sdto");
+          %>	          
   
 		<%
-             ArrayList<SpaceDTO> spaceList = (ArrayList<SpaceDTO>)request.getAttribute("spaceList");
-      
-             int currentPage = (Integer)request.getAttribute("currentPage");
-             int startPage = (Integer)request.getAttribute("startPage");
-             int pageBlock = (Integer)request.getAttribute("pageBlock");
-             int endPage = (Integer)request.getAttribute("endPage");
-             int pageCount = (Integer)request.getAttribute("pageCount");
-            
-             MemberDTO mdto = (MemberDTO)request.getAttribute("mdto");
-            	 %>         
+	            		ArrayList<SpaceDTO> spaceList = (ArrayList<SpaceDTO>)request.getAttribute("spaceList");
+	            		      
+	            		             int currentPage = (Integer)request.getAttribute("currentPage");
+	            		             int startPage = (Integer)request.getAttribute("startPage");
+	            		             int pageBlock = (Integer)request.getAttribute("pageBlock");
+	            		             int endPage = (Integer)request.getAttribute("endPage");
+	            		             int pageCount = (Integer)request.getAttribute("pageCount");
+	            		            
+	            		             HostDTO mdto = (HostDTO)request.getAttribute("mdto");
+	            		%>         
             
 	<%
 	for (int i = 0; i<spaceList.size(); i++){

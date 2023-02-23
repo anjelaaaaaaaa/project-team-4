@@ -8,9 +8,9 @@ import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.space4team.host.db.HostDAO;
+import com.space4team.host.db.HostDTO;
 import com.space4team.space.action.ActionForward;
-import com.space4team.member.db.MemberDAO;
-import com.space4team.member.db.MemberDTO;
 import com.space4team.space.db.SpaceDAO;
 
 public class SpaceDeletePro implements Action{
@@ -31,8 +31,8 @@ public class SpaceDeletePro implements Action{
 		String id=multi.getParameter("id");
 		String pass = multi.getParameter("pass");
 		
-		MemberDAO mdao = new MemberDAO();
-		MemberDTO mdto = mdao.userCheck(id, pass);
+		HostDAO mdao = new HostDAO();
+		HostDTO mdto = mdao.userCheck(id, pass);
 		
 		SpaceDAO dao = new SpaceDAO();
 		ActionForward forward = null;

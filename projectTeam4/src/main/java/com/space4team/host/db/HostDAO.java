@@ -1,4 +1,4 @@
-package com.space4team.member.db;
+package com.space4team.host.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +11,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class MemberDAO {
+public class HostDAO {
 	// 1,2 단계 디비연결 메서드
 	// 예외처리를 메서드 호출한곳으로 뒤로 미루겠다
 	public Connection getConnection() throws Exception{
@@ -35,16 +35,7 @@ public class MemberDAO {
 		return con;
 	}
 	
-	// insertMember() 메서드 정의해서 
-	// String id,String pass,String name,Timestamp date 
-	//   값이 저장된 바구니 주소를 저장할 변수 
-//	public void insertMember(MemberDTO dto) {
-//		System.out.println("MemberDAO insertMember()");
-//		System.out.println("MemberDTO 바구니 전달받은 주소 : " + dto);
-//		System.out.println("바구니주소에서 가져온 아이디 : " + dto.getId());
-//		System.out.println("바구니주소에서 가져온 비밀번호 : " + dto.getPass());
-//		System.out.println("바구니주소에서 가져온 이름 : " + dto.getName());
-//		System.out.println("바구니주소에서 가져온 가입날짜 : " + dto.getDate());
+
 //		
 //		Connection con=null;
 //		PreparedStatement pstmt=null;
@@ -76,10 +67,10 @@ public class MemberDAO {
 	// 리턴할형(MemberDTO) userCheck(String id, String pass) 메서드 정의
 	
 	
-	public MemberDTO userCheck(String id, String pass) {
+	public HostDTO userCheck(String id, String pass) {
 		// 바구니 주소가 저장되는 변수에 null 초기화 
 		System.out.println("usercheck 실행전 ");
-		MemberDTO dto=null;
+		HostDTO dto=null;
 		Connection con =null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -105,7 +96,7 @@ public class MemberDAO {
 				//next() 다음행 => 리턴값 데이터 있으면 true => 아이디 비밀번호 일치
 			    // => 세션값 생성 "id",id(페이지 상관없이 값을 유지) , main.jsp 이동
 				// dto 바구니 객체생성 => 기억장소 할당
-				dto=new MemberDTO();
+				dto=new HostDTO();
 				dto.setH_id(rs.getString("h_id"));
 				dto.setH_pass(rs.getString("h_pass"));
 				dto.setH_name(rs.getString("h_name"));
@@ -129,9 +120,8 @@ public class MemberDAO {
 	
 	}//userCheck()
 	
-	// MemberDTO 리턴할형 getMember(String id) 메서드 정의
-	public MemberDTO gethost(String id) {
-		MemberDTO dto=null;
+	public HostDTO gethost(String id) {
+		HostDTO dto=null;
 		Connection con =null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -152,7 +142,7 @@ public class MemberDAO {
 			if(rs.next()){
 				//next() 다음행 => 리턴값 데이터 있으면 true/ 아이디 일치
 				// 바구니 객체생성 => 기억장소 할당
-				dto=new MemberDTO();
+				dto=new HostDTO();
 				// set메서드호출 바구니에 디비에서 가져온 값 저장
 				dto.setH_id(rs.getString("h_id"));
 				dto.setH_pass(rs.getString("h_pass"));
