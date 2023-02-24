@@ -32,6 +32,7 @@ public class HostFrontController extends HttpServlet{
 		//가상 주소 매핑(비교)
 		Action action=null;
 		ActionForward forward=null;
+		
 			if(sPath.equals("/HostLoginForm.ho")) {
 				
 				forward=new ActionForward();
@@ -56,21 +57,24 @@ public class HostFrontController extends HttpServlet{
 			forward.setPath("host/hostmain.jsp");
 			forward.setRedirect(false);
 		
-		}else if(sPath.equals("/HostLogout.ho")) {
+		}
+		else if(sPath.equals("/HostLogout.ho")) {
 			action=new HostLogout();
 			try {
 				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(sPath.equals("/HostIdCheck.ho")) {
+		}
+		else if(sPath.equals("/HostIdCheck.ho")) {
 			action=new HostIdCheck();
 			try {
 				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(sPath.equals("/HostUpdateForm.ho")) {
+		}
+		else if(sPath.equals("/HostUpdateForm.ho")) {
 //			action=new MemberUpdateForm();
 			try {
 				forward=action.execute(request, response);
@@ -90,7 +94,7 @@ public class HostFrontController extends HttpServlet{
 			forward.setPath("host/hostmypage.jsp");
 			forward.setRedirect(false);
 			
-		}
+		} 
 		
 		//----------------------------------------------
 		//주소 이동

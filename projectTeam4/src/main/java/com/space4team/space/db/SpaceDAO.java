@@ -61,7 +61,7 @@ public class SpaceDAO {
 		}return num;
 	}
 	
-	public void insertSpace (SpaceDTO dto, HostDTO mdto) {
+	public void insertSpace (SpaceDTO dto, HostDTO hdto) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -84,7 +84,7 @@ public class SpaceDAO {
 			pstmt.setString(2, dto.getS_name());
 			pstmt.setString(3, dto.getS_address());
 			pstmt.setString(4, dto.getS_bill());
-			pstmt.setInt(5, mdto.getH_num());
+			pstmt.setInt(5, hdto.getH_num());
 			pstmt.setString(6, dto.getS_sido());
 			pstmt.setString(7, dto.getS_gungu());
 			pstmt.setString(8, dto.getS_memo());
@@ -105,12 +105,12 @@ public class SpaceDAO {
 			}return;
 		}
 	
-	public ArrayList<SpaceDTO> getSpaceList(int startRow, int pageSize, HostDTO mdto){
+	public ArrayList<SpaceDTO> getSpaceList(int startRow, int pageSize, HostDTO hdto){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<SpaceDTO> spaceList = new ArrayList<SpaceDTO>(); // 생성은 try 안에서 
-		System.out.println(mdto.getH_num());
+		System.out.println(hdto.getH_num());
 		try {
 			
 			con = getConnection();
@@ -118,11 +118,11 @@ public class SpaceDAO {
 			// select 명시적으로 컬럼 적기 
 			String sql = "select * from space where h_num =? order by s_num desc limit ?,? ";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, mdto.getH_num());
+			pstmt.setInt(1, hdto.getH_num());
 			pstmt.setInt(2, startRow -1);
 			pstmt.setInt(3, pageSize);
 			rs = pstmt.executeQuery();
-			System.out.println(mdto.getH_num());
+			System.out.println(hdto.getH_num());
 			while(rs.next()) {
 				SpaceDTO dto = new SpaceDTO();
 				dto.setS_num(rs.getInt("s_num"));
@@ -145,7 +145,7 @@ public class SpaceDAO {
 			return spaceList;
 	}
 	
-	public int getSpaceCount(HostDTO mdto) {
+	public int getSpaceCount(HostDTO hdto) {
 		int count = 0;
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -155,7 +155,7 @@ public class SpaceDAO {
 			con = getConnection();
 			String sql = "select count(*) from space where h_num =?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, mdto.getH_num());
+			pstmt.setInt(1, hdto.getH_num());
 			
 			rs = pstmt.executeQuery();
 			
@@ -209,7 +209,7 @@ public class SpaceDAO {
 		return dto;
 		
 	
-		} public void updateSpace(SpaceDTO dto, HostDTO mdto) {
+		} public void updateSpace(SpaceDTO dto, HostDTO hdto) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		System.out.println("updateSpace 시도! sql구문 시작전 ");
@@ -225,7 +225,7 @@ public class SpaceDAO {
 			pstmt.setString(1, dto.getS_name());
 			pstmt.setString(2, dto.getS_address());
 			pstmt.setString(3, dto.getS_bill());
-			pstmt.setInt(4, mdto.getH_num());
+			pstmt.setInt(4, hdto.getH_num());
 			pstmt.setString(5, dto.getS_sido());
 			pstmt.setString(6, dto.getS_gungu());
 			

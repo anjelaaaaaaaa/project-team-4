@@ -58,10 +58,10 @@ public class SpaceUpdatePro implements Action{
 			
 			HttpSession session = request.getSession();
 			String id = (String)session.getAttribute("id");
-			HostDAO mdao = new HostDAO();
-			HostDTO mdto = mdao.gethost(id);
-			System.out.println(mdto.getH_id());
-			System.out.println(mdto.getH_num());
+			HostDAO hdao = new HostDAO();
+			HostDTO hdto = hdao.gethost(id);
+			System.out.println(hdto.getH_id());
+			System.out.println(hdto.getH_num());
 			
 			dto.setS_num(num);
 			dto.setS_name(name);
@@ -74,7 +74,7 @@ public class SpaceUpdatePro implements Action{
 			dto.setS_file(file);
 			dto.setS_option(s_option);
 			
-			dao.updateSpace(dto, mdto);
+			dao.updateSpace(dto, hdto);
 		
 
 		

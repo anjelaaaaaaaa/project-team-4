@@ -31,15 +31,15 @@ public class SpaceDeletePro implements Action{
 		String id=multi.getParameter("id");
 		String pass = multi.getParameter("pass");
 		
-		HostDAO mdao = new HostDAO();
-		HostDTO mdto = mdao.userCheck(id, pass);
+		HostDAO hdao = new HostDAO();
+		HostDTO hdto = hdao.userCheck(id, pass);
 		
 		SpaceDAO dao = new SpaceDAO();
 		ActionForward forward = null;
 		
 		
 		
-		if(mdto!=null) {
+		if(hdto!=null) {
 			//아이디 비밀번호 일치
 			dao.deleteSpace(num);
 			

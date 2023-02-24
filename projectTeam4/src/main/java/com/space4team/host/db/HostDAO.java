@@ -70,7 +70,7 @@ public class HostDAO {
 	public HostDTO userCheck(String id, String pass) {
 		// 바구니 주소가 저장되는 변수에 null 초기화 
 		System.out.println("usercheck 실행전 ");
-		HostDTO dto=null;
+		HostDTO hdto=null;
 		Connection con =null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -96,11 +96,11 @@ public class HostDAO {
 				//next() 다음행 => 리턴값 데이터 있으면 true => 아이디 비밀번호 일치
 			    // => 세션값 생성 "id",id(페이지 상관없이 값을 유지) , main.jsp 이동
 				// dto 바구니 객체생성 => 기억장소 할당
-				dto=new HostDTO();
-				dto.setH_id(rs.getString("h_id"));
-				dto.setH_pass(rs.getString("h_pass"));
-				dto.setH_name(rs.getString("h_name"));
-				dto.setH_num(rs.getInt("h_num"));
+				hdto=new HostDTO();
+				hdto.setH_id(rs.getString("h_id"));
+				hdto.setH_pass(rs.getString("h_pass"));
+				hdto.setH_name(rs.getString("h_name"));
+				hdto.setH_num(rs.getInt("h_num"));
 
 
 			}else{
@@ -116,12 +116,12 @@ public class HostDAO {
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
 			if(con!=null) try { con.close();} catch (Exception e2) {}
 		}
-		return dto;
+		return hdto;
 	
 	}//userCheck()
 	
 	public HostDTO gethost(String id) {
-		HostDTO dto=null;
+		HostDTO hdto=null;
 		Connection con =null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -142,12 +142,12 @@ public class HostDAO {
 			if(rs.next()){
 				//next() 다음행 => 리턴값 데이터 있으면 true/ 아이디 일치
 				// 바구니 객체생성 => 기억장소 할당
-				dto=new HostDTO();
+			hdto=new HostDTO();
 				// set메서드호출 바구니에 디비에서 가져온 값 저장
-				dto.setH_id(rs.getString("h_id"));
-				dto.setH_pass(rs.getString("h_pass"));
-				dto.setH_name(rs.getString("h_name"));
-				dto.setH_num(rs.getInt("h_num"));
+				hdto.setH_id(rs.getString("h_id"));
+				hdto.setH_pass(rs.getString("h_pass"));
+				hdto.setH_name(rs.getString("h_name"));
+				hdto.setH_num(rs.getInt("h_num"));
 		
 			}
 		} catch (Exception e) {
@@ -158,7 +158,7 @@ public class HostDAO {
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
 			if(con!=null) try { con.close();} catch (Exception e2) {}
 		}
-		return dto;
+		return hdto;
 	}//getMember()
 	
 	// 리턴값없음 updateMember(MemberDTO updateDto) 메서드 정의

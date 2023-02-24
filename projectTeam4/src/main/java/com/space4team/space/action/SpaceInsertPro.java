@@ -80,20 +80,20 @@ public class SpaceInsertPro implements Action{
 		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
-		HostDAO mdao = new HostDAO();
-		HostDTO mdto = mdao.gethost(id);
-		System.out.println(mdto.getH_id());
+		HostDAO hdao = new HostDAO();
+		HostDTO hdto = hdao.gethost(id);
+		System.out.println(hdto.getH_id());
 		
 		SpaceDAO dao = new SpaceDAO();
 		System.out.println("SpaceDAO 주소 : " + dao);
 //		dao.insertMember(id, pass, name, date);  변수 대신 MemberDTO의 주소값을 전달할거임
-		dao.insertSpace(dto, mdto);
+		dao.insertSpace(dto, hdto);
 		
 //		memberLoginForm.me로 이동정보를 담아서 갈거임 
 //		actionForward(이동정보를 담는 객체)를 생성함 ! 
 //		여기에 setPath, setRedirect에 이동정보를 담아서 그 객체를 들고 호출한 곳으로 돌아감. return forward 
 		ActionForward forward = new ActionForward();
-		forward.setPath("host/hostmain.jsp");
+		forward.setPath("SpaceList.sp");
 		forward.setRedirect(true);
 		
 		return forward;
